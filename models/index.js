@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 const users = require('./User')
-
+const product=require('./Product')
 const Schema = mongoose.Schema
 
 const createSchema = (schema) => {
@@ -9,3 +9,5 @@ const createSchema = (schema) => {
 }
 
 const User = mongoose.model('Users', createSchema(users))
+const Product = mongoose.model('Product', createSchema(product))
+module.exports = { User, Product }

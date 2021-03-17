@@ -1,8 +1,8 @@
 const { response } = require('express')
 const express = require('express')
 const mongoose = require('mongoose')
-const router = require('./routes/user')
-
+const Users = require('./routes/user')
+const Products=require('./routes/product')
 const app = express()
 var students = ['trung', 'hung']
 app.use(express.json())
@@ -16,7 +16,8 @@ mongoose.connect('mongodb+srv://trungdang123:trungdeptrai123@cluster0.f3exi.mong
     console.log('trung database connection created')
 })
 
-app.use('/auth', router)
+app.use('/auth', Users)
+app.use('/product',Products)
 
 app.get('/get-student', (require, response) => {
     response.status(200).send(students)
