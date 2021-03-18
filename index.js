@@ -2,7 +2,8 @@ const { response } = require('express')
 const express = require('express')
 const mongoose = require('mongoose')
 const Users = require('./routes/user')
-const Products=require('./routes/product')
+const Products = require('./routes/product')
+const Books=require('./routes/book')
 const app = express()
 var students = ['trung', 'hung']
 app.use(express.json())
@@ -17,7 +18,8 @@ mongoose.connect('mongodb+srv://trungdang123:trungdeptrai123@cluster0.f3exi.mong
 })
 
 app.use('/auth', Users)
-app.use('/product',Products)
+app.use('/product', Products)
+app.use('/book', Books)
 
 app.get('/get-student', (require, response) => {
     response.status(200).send(students)
